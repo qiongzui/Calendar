@@ -4,19 +4,10 @@
     android:layout_height="match_parent">
 
 
-    <Switch
-        android:id="@+id/iscar_switch"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="@string/switch_name"
-        android:layout_margin="10dp"
-        android:textColor="#000"
-        android:textSize="20dp"/>
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
 
         android:layout_margin="10dp">
 
@@ -26,15 +17,18 @@
             android:layout_weight="1"
             android:enabled="false"
             android:text="打车费用"
-            android:textSize="20dp"
-            android:textColor="#000"/>
-        <TextView
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:gravity="center"
+            />
+        <EditText
+            android:id="@+id/money_edit"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="@string/money"
-            android:textSize="20dp"
-            android:textAlignment="center"
+            android:textSize="20sp"
+            android:gravity="center"
             android:lines="1"
             android:inputType="number"
             />
@@ -44,18 +38,19 @@
             android:layout_weight="1"
             android:text="@string/unit"
             android:enabled="false"
-            android:textSize="20dp"
-            android:textAlignment="center"
+            android:textSize="20sp"
+            android:gravity="center"
             android:textColor="#000"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/notes_text"
+    <EditText
+        android:id="@+id/notes_edit"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:hint="@string/notes"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_margin="10dp"
+        android:gravity="center"
         />
 </LinearLayout>

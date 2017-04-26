@@ -4,10 +4,11 @@
     android:layout_height="50dp"
     >
     <Button
-        android:id="@+id/last_month_btn"
+        android:id="@+id/previous_month_btn"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:background="@drawable/ic_previous"/>
     <TextView
         android:id="@+id/month_text"
         android:layout_width="0dp"
@@ -17,6 +18,7 @@
         android:id="@+id/next_month_btn"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:background="@drawable/ic_next"/>
 
 </LinearLayout>
