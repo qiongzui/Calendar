@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/cardview_light_background">
 
-    <CalendarView
-        android:id="@+id/calendar_view"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
+        android:layout_height="500dp">
 
-    </CalendarView>
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            android:id="@+id/calendar_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:mcv_showOtherDates="all"
+            app:mcv_selectionColor="#FFCCFF">
+
+        </com.prolificinteractive.materialcalendarview.MaterialCalendarView>
+    </FrameLayout>
+
     <Switch
         android:id="@+id/iscar_switch"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="@string/switch_name"
+        android:textAlignment="center"
         android:layout_margin="10dp"
         android:textColor="#000"
         android:textSize="20sp"/>

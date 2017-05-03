@@ -28,16 +28,12 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
-                <FrameLayout
-                    android:id="@+id/title_fragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    ></FrameLayout>
-                <FrameLayout
+                <fragment
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/context_fragment" >
-                </FrameLayout>
+                    android:id="@+id/context_fragment"
+                    android:name="com.zzh.calendar.fragments.DateFragment">
+                </fragment>
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
