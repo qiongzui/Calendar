@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.zzh.calendar.R;
+import com.zzh.calendar.db.DateRecord;
 
 /**
  * Created by Administrator on 2017/4/26 0026.
@@ -36,5 +37,10 @@ public class EventFragment extends Fragment {
 
     public EditText getNoteEdit() {
         return noteEdit;
+    }
+
+    public void refresh(DateRecord dateRecord){
+        moneyEdit.setText(dateRecord.getMoney());
+        noteEdit.setText(dateRecord.getEvent());
     }
 }

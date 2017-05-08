@@ -1,6 +1,7 @@
 package com.zzh.calendar.fragments;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,12 +21,17 @@ import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import com.zzh.calendar.MainActivity;
 import com.zzh.calendar.R;
+import com.zzh.calendar.db.DateRecord;
 import com.zzh.calendar.parameter.Parameter;
 import com.zzh.calendar.util.ShowLog;
 
+import org.litepal.crud.DataSupport;
+
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+import static android.R.id.list;
 import static android.content.ContentValues.TAG;
 
 /**
@@ -68,6 +74,11 @@ public class DateFragment extends Fragment implements View.OnClickListener{
                 dateTime = date.getYear() + "-" + date.getMonth() + "-" + date.getDay();
                 if (!dateTime.equals(date_last)){
                     ShowLog.d("calendar" , "date is " + dateTime);
+                    EventFragment eventFragment = (EventFragment)getFragmentManager().findFragmentById(R.id.event_fragment);
+                    DateRecord dateRecord = (DateRecord)loadEvent(dateTime);
+                    if (dateRecord != null){
+                        eventFragment.refresh(dateRecord);
+                    }
                 }
 
 
@@ -101,5 +112,19 @@ public class DateFragment extends Fragment implements View.OnClickListener{
         localBroadcastManager.sendBroadcast(intent);
     }
 
+    private Object loadEvent(String dateTime){
+        String list[] = dateTime.split("-");
+        String year = list[0];
+        String month = list[1];
+        String day = list[2];
+
+        List<DateRecord> dateRecords = DataSupport.where("year = ? and month = ? and day = ?",year,month,day).find(DateRecord.class);
+        if (dateRecords.size() > 0){
+            DateRecord dateRecord = dateRecords.get(0);
+            return dateRecord;
+        }else
+            return null;
+
+    }
 
 }

@@ -33,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
         registerReceiver(switchBroadcastReceiver , intentFilter);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(switchBroadcastReceiver);
+    }
+
     class SwitchBroadcastReceiver extends BroadcastReceiver{
 
         @Override
